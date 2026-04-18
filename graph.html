@@ -1,0 +1,17 @@
+<div id="graph" style="height:600px;"></div>
+
+<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+
+<script>
+fetch('/graph-data.json')
+.then(r=>r.json())
+.then(data=>{
+
+  var cy = cytoscape({
+    container: document.getElementById('graph'),
+    elements: data,
+    layout: { name: 'cose' }
+  });
+
+});
+</script>

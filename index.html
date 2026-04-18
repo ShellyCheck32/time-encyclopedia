@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+<link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" />
+
+<style>
+#timeline {
+  height: 500px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Энциклопедия времени</h1>
+
+<div id="timeline"></div>
+
+<script>
+fetch('/data/timeline.json')
+.then(res => res.json())
+.then(data => {
+
+  var items = new vis.DataSet(data);
+
+  var timeline = new vis.Timeline(
+    document.getElementById('timeline'),
+    items,
+    {
+      zoomable: true,
+      moveable: true
+    }
+  );
+
+  timeline.on('select', function (props) {
+    var item = items.get(props.items[0]);
+    if(item.link){
+      window.location.href = item.link;
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>

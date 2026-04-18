@@ -1,0 +1,13 @@
+---
+layout: none
+---
+
+[
+{% for page in site.pages %}
+{% if page.type == "person" %}
+{
+  "data": { "id": "{{ page.url }}", "label": "{{ page.title }}" }
+},
+{% endif %}
+{% endfor %}
+]

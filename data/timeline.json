@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "content": "Большой взрыв",
+    "start": "-13800000000",
+    "link": "/period/bigbang"
+  },
+  {
+    "id": 2,
+    "content": "Античность",
+    "start": "-800",
+    "end": "500",
+    "link": "/period/antiquity"
+  }
+]
